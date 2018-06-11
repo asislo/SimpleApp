@@ -32,6 +32,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -93,6 +96,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+        
+        AppCenter.start(getApplication(), "51a9be8d-9db5-45eb-98ca-7750d5e30dad",
+                Analytics.class, Crashes.class); 
     }
 
     private void populateAutoComplete() {
